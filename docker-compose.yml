@@ -1,0 +1,10 @@
+version: '2'
+services:
+
+  rsyncd:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        http_proxy:
+    image: muccg/rsyncd

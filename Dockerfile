@@ -14,10 +14,12 @@ RUN addgroup --gid 1000 ccg-user \
 
 EXPOSE 873
 
-# Drop privileges, set home for ccg-user
-USER ccg-user
+# don't drop privs, rsyncd will after binding to privileged port
 ENV HOME /data
 WORKDIR /data
+
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+COPY etc/rsyncd.conf /etc/rsyncd.conf
 
 # entrypoint shell script that by default starts uwsgi
 ENTRYPOINT ["/docker-entrypoint.sh"]
