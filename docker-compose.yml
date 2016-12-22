@@ -3,3 +3,5 @@ services:
 
   rsyncd:
     image: muccg/rsyncd
+    ports:
+      - "873"
