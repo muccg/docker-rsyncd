@@ -1,0 +1,19 @@
+version: '2'
+services:
+
+  dev:
+    build:
+      context: ./
+    image: muccg/rsyncd:${GIT_BRANCH}
+
+  prod:
+    extends:
+      file: docker-compose-build.yml
+      service: dev
+    image: muccg/rsyncd:${GIT_TAG}
+
+  latest:
+    extends:
+      file: docker-compose-build.yml
+      service: dev
+    image: muccg/rsyncd:latest
