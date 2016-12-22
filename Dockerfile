@@ -18,8 +18,7 @@ EXPOSE 873
 ENV HOME /data
 WORKDIR /data
 
-COPY docker-entrypoint.sh /docker-entrypoint.sh
-COPY etc/rsyncd.conf /etc/rsyncd.conf
+COPY rootfs/ /
 
 # entrypoint shell script that by default starts uwsgi
 ENTRYPOINT ["/docker-entrypoint.sh"]
