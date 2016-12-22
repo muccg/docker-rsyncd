@@ -5,3 +5,5 @@ services:
     image: muccg/rsyncd
     ports:
       - "873"
+    volumes:
+      - "./data:/data"
